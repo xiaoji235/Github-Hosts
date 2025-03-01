@@ -18,6 +18,7 @@
 ## ⚠ 注意！
  - 本程序默认会备份系统hosts，如果需要修改hosts，请务必将内容添加到hosts.bak当中，使用该程序前建议备份你的hosts，一旦任务自动化执行，会覆盖系统hosts数据（备份的hosts.bak不会受影响）！
  - 请勿在steam++网络加速后或运行其他具有修改hosts的程序后运行该程序！
+ - Windows系统中若需要临时修改hosts，可以修改hosts.bak，或者运行releases包含的bat批处理脚本（以管理员身份运行），修改完成后再次运行Hosts.services.exe。
 
 ## 问题
  - 由于存在SNI阻断，修改hosts不一定有效，更稳定的办法使用VPN或steam++
