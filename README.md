@@ -9,7 +9,7 @@
  - 通过Windows自带的任务计划程序，运行时系统自带的hosts将会复制一份程序使用前的hosts（备份的hosts不会自动更新或删除）并将原hosts删除，将备份的hosts.bak复制为hosts，并将自动从`https://raw.hellogithub.com/hosts`获取到最新GitHub hosts，合并到本地hosts中，从而实现hosts实时更新！
 
 ## 使用方法
- - 在releases中下载exe可执行程序，并保存到安全路径当中。
+ - 在[releases](https://github.com/xiaoji235/Github-Hosts/releases)中下载exe可执行程序，并保存到安全路径当中。
  - 右键此电脑点击”管理“，选择“任务计划程序”并创建任务。
  - 在创建任务界面自行配置其名称以及描述，勾选“使用最高权限运行”。
  - 在“操作”一栏中新建操作，选中程序。
