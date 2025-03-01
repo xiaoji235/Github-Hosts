@@ -4,6 +4,7 @@
 ## 说明
  - 可自行编译其他操作系统的可执行程序，需要将路径修改为该操作系统hosts存放路径！
  - 在编译前确认requests模块是否存在，若不存在，需执行：`pip install requests`
+ - 建议搭配自定义DNS服务器地址使用，效果特别好！
 
 ## 原理
  - 通过Windows自带的任务计划程序，运行时系统自带的hosts将会复制一份程序使用前的hosts（备份的hosts不会自动更新或删除）并将原hosts删除，将备份的hosts.bak复制为hosts，并将自动从`https://raw.hellogithub.com/hosts`获取到最新GitHub hosts，合并到本地hosts中，从而实现hosts实时更新！
