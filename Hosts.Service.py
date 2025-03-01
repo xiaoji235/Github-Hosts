@@ -3,16 +3,25 @@ import shutil
 import requests
 import tkinter as tk
 from tkinter import messagebox
+import subprocess
 
 def show_message(message):
     """弹窗显示指定消息"""
     root = tk.Tk()
-    root.withdraw()  # 隐藏主窗口
-    messagebox.showinfo("使用说明", message)
+    root.withdraw()
+    messagebox.showinfo("提示", message)
     root.destroy()
 
+def flush_dns_cache():
+    # DNS缓存清理
+    try:
+        subprocess.run(["ipconfig", "/flushdns"], check=True, shell=True)
+        print("DNS缓存已刷新")
+    except subprocess.CalledProcessError as e:
+        print(f"刷新DNS缓存失败: {e}")
+
 def main():
-    # 定义路径和文件名
+    # hosts复制与修改
     etc_dir = r"C:\Windows\System32\drivers\etc"
     hosts_path = os.path.join(etc_dir, "hosts")
     hosts_bak_path = os.path.join(etc_dir, "hosts.bak")
@@ -35,7 +44,7 @@ def main():
         shutil.copy2(hosts_bak_path, hosts_path)
         print("已将 hosts.bak 复制为 hosts")
 
-    # 从指定URL下载内容并追加到 hosts 文件中
+    # 获取GitHub-hosts地址
     url = "https://raw.hellogithub.com/hosts"
     response = requests.get(url)
     if response.status_code == 200:
@@ -44,7 +53,9 @@ def main():
         print("已将URL内容追加到 hosts 文件中")
     else:
         print(f"无法从 {url} 下载内容，状态码: {response.status_code}")
-        show_message("加载失败，请检查服务器端hosts是否存在！")
+
+    # 刷新DNS缓存
+    flush_dns_cache()
 
 if __name__ == "__main__":
     main()
