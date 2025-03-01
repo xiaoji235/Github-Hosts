@@ -36,7 +36,7 @@ def main():
         print("已将 hosts.bak 复制为 hosts")
 
     # 从指定URL下载内容并追加到 hosts 文件中
-    url = "https://hosts.gitcdn.top/hosts.txt"
+    url = "https://raw.hellogithub.com/hosts"
     response = requests.get(url)
     if response.status_code == 200:
         with open(hosts_path, "a", encoding="utf-8") as hosts_file:
