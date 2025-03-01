@@ -22,3 +22,5 @@
 
 ## 问题
  - 由于存在SNI阻断，修改hosts不一定有效，更稳定的办法使用VPN或steam++
+
+## hosts 来源于[GitHub520](https://github.com/521xueweihan/GitHub520)，由[xiaoji235](https://github.com/xiaoji235)实现自动化运行
